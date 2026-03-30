@@ -18,7 +18,7 @@ This tool is provided as a Chrome extension for ease of use. It will function on
 
 1. **Download the latest release**
 
-   Go to the [Releases](https://github.com/CheeseyPatrick/rplace-brush/releases) tab on GitHub and download the latest `.zip` file under **Assets**.
+   Go to the [Releases](https://github.com/CheeseyPatrick/rplace-brush/releases) tab on GitHub and download the `v1.6.7.zip` file under **Assets**.
 
 2. **Extract the ZIP**
 
