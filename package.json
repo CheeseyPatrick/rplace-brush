@@ -1,0 +1,22 @@
+{
+   "type": "module",
+   "devDependencies": {
+      "@rollup/plugin-commonjs": "^29.0.2",
+      "@rollup/plugin-node-resolve": "^16.0.3",
+      "@rollup/plugin-terser": "^1.0.0",
+      "@rollup/plugin-typescript": "^12.3.0",
+      "@types/chrome": "latest",
+      "@types/humanize-duration": "^3.27.4",
+      "rollup": "^4.60.0",
+      "rollup-plugin-copy": "^3.5.0",
+      "tslib": "^2.8.1"
+   },
+   "scripts": {
+      "build": "rollup -c",
+      "watch": "rollup -c --watch"
+   },
+   "dependencies": {
+      "humanize-duration": "^3.33.2",
+      "shared-ipc": "^1.2.1"
+   }
+}

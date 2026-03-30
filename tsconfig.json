@@ -1,0 +1,27 @@
+{
+   // Visit https://aka.ms/tsconfig to read more about this file
+   "compilerOptions": {
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "target": "esnext",
+      "types": ["chrome"],
+      "lib": ["esnext", "dom", "dom.iterable"],
+
+      "noUncheckedIndexedAccess": true,
+      "exactOptionalPropertyTypes": true,
+
+      "strict": true,
+      "verbatimModuleSyntax": true,
+      "isolatedModules": true,
+      "noUncheckedSideEffectImports": true,
+      "moduleDetection": "force",
+      "skipLibCheck": true,
+
+      "paths": {
+         "https://cdn.jsdelivr.net/npm/shared-ipc/+esm": [
+            "./node_modules/shared-ipc"
+         ]
+      }
+   },
+   "include": ["src/**/*"]
+}

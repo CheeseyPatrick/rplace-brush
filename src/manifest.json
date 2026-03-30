@@ -1,0 +1,38 @@
+{
+   "manifest_version": 3,
+   "$schema": "https://json.schemastore.org/chrome-manifest.json",
+   "name": "rplace.live Brush",
+   "version": "1.6.7",
+   "description": "Adds a brush tool to rplace.live, allowing users to place pixels more effectively",
+   "icons": {
+      "128": "icons/icon_128.png"
+   },
+   "content_scripts": [
+      {
+         "matches": ["https://rplace.live/*"],
+         "js": ["rplaceBrush.js"],
+         "run_at": "document_start",
+         "world": "MAIN"
+      }
+   ],
+   "declarative_net_request": {
+      "rule_resources": [
+         {
+            "id": "rule",
+            "enabled": true,
+            "path": "rule.json"
+         }
+      ]
+   },
+   "permissions": ["declarativeNetRequest"],
+   "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+   },
+   "web_accessible_resources": [
+      {
+         "resources": ["src/icon_128.png"],
+         "matches": ["https://rplace.live/*"]
+      }
+   ],
+   "host_permissions": ["https://server.rplace.live/*"]
+}
