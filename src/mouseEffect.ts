@@ -5,6 +5,7 @@ export class MouseEffect {
    private observer: MutationObserver
 
    private currentColor: string = "255,255,255"
+   private currentRectColor: string = "255,255,255"
    private currentColorIndex: number = 5
    private coloursObserver?: MutationObserver
 
@@ -16,6 +17,8 @@ export class MouseEffect {
    private rectStartTileY: number = -1
    private rectEndTileX: number = -1
    private rectEndTileY: number = -1
+
+   private restartOperationAfterPaletteColorChange: boolean = false
 
    private rectangleSelectionCallback?: (data: RectangleData) => void
 
@@ -81,9 +84,11 @@ export class MouseEffect {
       const indexAttr = selected.getAttribute("data-index")
       this.currentColorIndex = indexAttr ? parseInt(indexAttr) : -1
 
-      if (oldColor !== this.currentColor && this.rectStartTileX !== -1) {
-         this.callCallback()
-         this.redrawRect()
+      if (this.restartOperationAfterPaletteColorChange) {
+         if (oldColor !== this.currentColor && this.rectStartTileX !== -1) {
+            this.callCallback()
+            this.redrawRect()
+         }
       }
    }
 
@@ -117,6 +122,7 @@ export class MouseEffect {
       this.rectStartTileY = tileY
       this.rectEndTileX = tileX
       this.rectEndTileY = tileY
+      this.currentRectColor = this.currentColor
 
       this.redrawRect()
    }
@@ -217,7 +223,7 @@ export class MouseEffect {
       const w = x2 - x1 + 1
       const h = y2 - y1 + 1
 
-      this.ctx.fillStyle = `rgba(${this.currentColor}, 0.55)`
+      this.ctx.fillStyle = `rgba(${this.currentRectColor}, 0.55)`
       this.ctx.fillRect(x1, y1, w, h)
    }
 

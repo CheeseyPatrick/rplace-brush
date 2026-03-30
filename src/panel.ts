@@ -4,6 +4,8 @@ const humanizeinger = humanizer({
    language: navigator.language.slice(0, 2) || "en",
 })
 
+export let isOperationActive: boolean = false
+
 export class BrushPanel {
    private panel: HTMLDivElement
    private observer: MutationObserver
@@ -48,6 +50,7 @@ export class BrushPanel {
    private updateHtml() {
       if (!this.panel) return
       let noOperation = Date.now() - this.lastOperation >= 5000 ? true : false
+      noOperation ? (isOperationActive = false) : (isOperationActive = true)
       let timeUntil: string = "N/A"
       if (this.eta && !noOperation) {
          const number = Math.ceil((this.eta - Date.now()) / 1000) * 1000
