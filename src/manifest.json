@@ -2,7 +2,7 @@
    "manifest_version": 3,
    "$schema": "https://json.schemastore.org/chrome-manifest.json",
    "name": "rplace.live Brush",
-   "version": "1.6.7",
+   "version": "1.6.8",
    "description": "Adds a brush tool to rplace.live, allowing users to place pixels more effectively",
    "icons": {
       "128": "icons/icon_128.png"
